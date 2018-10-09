@@ -28,3 +28,7 @@
 [[constraint]]
   name = "github.com/Shopify/sarama"
   version = "1.18.0"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/wvanbergen/kafka"

@@ -3,7 +3,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -143,7 +142,7 @@ func (i *Ini) In() () {
 
 // stt
 type stt struct {
-	a, b int
+	A, B int
 }
 
 // CheckDirUpdate CheckDirUpdate
@@ -160,19 +159,48 @@ func main() { //([]string, error) {
 	//	//}()
 	//	//time.Sleep(1 * time.Hour)
 
-	a := map[int]*stt{1: {b: 2}}
-	a[2] = &stt{2, 3}
-	fmt.Println(a)
-	fmt.Printf("%#v\n", a)
-	j, err := json.Marshal(&a)
-	if err != nil {
-		fmt.Println(err)
-		return
+	//a := map[int]*stt{1: {b: 2}}
+	//a[2] = &stt{2, 3}
+	//fmt.Println(a)
+	//fmt.Printf("%#v\n", a)
+	//j, err := json.Marshal(&a)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+	//fmt.Println(string(j))
+	//b := map[int]*stt{}
+	//json.Unmarshal(j, b)
+	//fmt.Println(b)
+
+	//a := 1
+	//b := "12"
+	//Add(&a)
+	//Add(b)
+	//fmt.Println(a, b)
+	//c := stt{1, 2}
+	//d, _ := json.Marshal(c)
+	//fmt.Println(string(d))
+	//e, _ := json.Marshal(&c)
+	//fmt.Println(string(e))
+
+	//echo "{\"name\":\"pcgameq_panda_gift_donate\",\"data\":\"{\"__plat\":\"ios\",\"uid\":\"137914784\",\"anchor\":\"108930328\",\"roomid\":\"3497620\",\"giftid\":\"5aba0ed6ea3d187b391b2293\",\"price\":\"50\",\"count\":\"1\",\"total\":\"50\",\"ip\":\"10.131.7.41\",\"time\":1538136530.2132,\"channel\":\"\",\"unique\":\"5bae19d2dcf63a25092a8046_1\",\"pdft\":\"\",\"cate\":\"gbady\",\"extra_anchor\":\"\",\"fb\":\"\",\"lotteryChance\":\"\"}",\"host\":\"pt5v.plat.bjtb.pdtv.it\",\"key\":\"\",\"time\":\"2018-09-28 20:08:50\",\"requestid\":\"1538136530017-14713101-30284-4d4dc38519ab7a2f\"}"
+
+
+}
+
+// Add Add
+func Add(a interface{}) {
+	// TODO
+	switch a.(type) {
+	case *int:
+		b := *a.(*int) + 1
+		a = &b
+	case *string:
+		a = *a.(*string) + "123"
+	default:
+		fmt.Println("other type")
 	}
-	fmt.Println(string(j))
-	b := map[int]*stt{}
-	json.Unmarshal(j, b)
-	fmt.Println(b)
 }
 
 //type FileNode struct {
